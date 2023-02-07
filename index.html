@@ -37,9 +37,7 @@
         <h1 class="fs-800 fw-400 text-neutral-400">
           We are launching <span class="fw-700 text-neutral-800">soon!</span>
         </h1>
-        <p class="fs-500">
-          Subscribe and get notified
-        </p>
+        <p class="fs-500">Subscribe and get notified</p>
       </div>
 
       <form id="sign-up-form" class="grid" novalidate>
@@ -90,7 +88,7 @@
     const validateEmail = (value) => {
       const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       return regex.test(value) ? true : false;
-    }
+    };
 
     emailInput.addEventListener("input", (event) => {
       if (validateEmail(event.currentTarget.value)) {
@@ -130,7 +128,7 @@
       } catch (e) {
         alert("Oops! Something went wrong. Please try again later.");
       }
-    })
+    });
   </script>
 </body>
 
