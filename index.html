@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Dave Quah (@Milleus)">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <link href="/assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/assets/fontawesome/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="/global.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W6QZZYV2W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5W6QZZYV2W');
+  </script>
+</head>
+
+<body>
+  <div class="landing">
+    <main>
+      <img src="assets/logo.svg" alt="company logo" class="mx-auto">
+
+      <div class="intro text-center space-y">
+        <h1 class="fs-800 fw-400 text-neutral-400">
+          We are launching <span class="fw-700 text-neutral-800">soon!</span>
+        </h1>
+        <p class="fs-500">
+          Subscribe and get notified
+        </p>
+      </div>
+
+      <form id="sign-up-form" class="grid" novalidate>
+        <input id="email" name="email" type="email" class="input" data-variant="primary"
+          placeholder="Your email address..." maxlength="255">
+        <p aria-live="polite" class="error fs-300 text-red-400"></p>
+        <button type="submit" class="button" data-variant="primary">
+          Notify Me
+        </button>
+      </form>
+
+      <img src="assets/illustration-dashboard.png" alt="illustration dashboard" class="illustration mx-auto">
+    </main>
+
+    <footer class="fs-300 text-neutral-400">
+      <ul class="flex">
+        <li>
+          <a class="link" data-variant="social" href="#">
+            <span class="sr-only">Facebook</span>
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a class="link" data-variant="social" href="#">
+            <span class="sr-only">Twitter</span>
+            <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a class="link" data-variant="social" href="#">
+            <span class="sr-only">Instagram</span>
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+
+      <p class="fs-300 text-neutral-400 text-center">
+        &copy; Copyright Ping. All rights reserved.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const signUpForm = document.querySelector("#sign-up-form");
+    const emailInput = document.querySelector("#email");
+    const emailError = document.querySelector("#email + .error");
+
+    const validateEmail = (value) => {
+      const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      return regex.test(value) ? true : false;
+    }
+
+    emailInput.addEventListener("input", (event) => {
+      if (validateEmail(event.currentTarget.value)) {
+        emailInput.setAttribute("data-error", "false");
+        emailError.textContent = "";
+        emailError.classList.remove("show");
+      }
+    });
+
+    signUpForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const formProps = Object.fromEntries(formData);
+      const emailValue = formProps.email.trim();
+
+      if (!emailValue) {
+        emailInput.setAttribute("data-error", "true");
+        emailError.textContent = "Whoops! It looks like you forgot to add your email";
+        emailError.classList.add("show");
+        return;
+      }
+
+      if (!validateEmail(emailValue)) {
+        emailInput.setAttribute("data-error", "true");
+        emailError.textContent = "Please provide a valid email address";
+        emailError.classList.add("show");
+        return;
+      }
+
+      try {
+        alert("Thanks for subscribing!");
+
+        emailInput.setAttribute("data-error", "false");
+        emailError.textContent = "";
+        emailError.classList.remove("show");
+      } catch (e) {
+        alert("Oops! Something went wrong. Please try again later.");
+      }
+    })
+  </script>
+</body>
+
+</html>
