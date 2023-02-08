@@ -272,6 +272,7 @@ footer p {
 @media (min-width: 40em) {
   .landing {
     max-width: 44.5rem;
+    padding-bottom: 3rem;
   }
 
   main .intro {
@@ -284,6 +285,7 @@ footer p {
     grid-template-areas:
       "input input button"
       "error error .";
+    margin-inline: unset;
   }
 
   main #sign-up-form button[type="submit"] {
