@@ -157,6 +157,20 @@ select {
   border: 0;
 }
 
+.text-red-400 {
+  color: hsl(var(--clr-red-400));
+}
+.text-neutral-400 {
+  color: hsl(var(--clr-neutral-400));
+}
+.text-neutral-800 {
+  color: hsl(var(--clr-neutral-800));
+}
+
+.border-red-400 {
+  border-color: hsl(var(--clr-red-400));
+}
+
 .fs-300 {
   font-size: var(--fs-300);
   line-height: var(--lh-300);
@@ -185,20 +199,6 @@ select {
 }
 .fw-700 {
   font-weight: var(--fw-700);
-}
-
-.text-red-400 {
-  color: hsl(var(--clr-red-400));
-}
-.text-neutral-400 {
-  color: hsl(var(--clr-neutral-400));
-}
-.text-neutral-800 {
-  color: hsl(var(--clr-neutral-800));
-}
-
-.border-red-400 {
-  border-color: hsl(var(--clr-red-400));
 }
 
 .mx-auto {
