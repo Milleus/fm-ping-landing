@@ -44,7 +44,7 @@
         <label for="email" class="sr-only">Email</label>
         <input id="email" name="email" type="email" class="input" data-variant="primary"
           placeholder="Your email address..." maxlength="255">
-        <p aria-live="polite" class="error fs-300 text-red-400"></p>
+        <p aria-live="polite" class="error fs-300 text-red-400" data-visible="false"></p>
         <button type="submit" class="button" data-variant="primary">
           Notify Me
         </button>
@@ -94,8 +94,8 @@
     emailInput.addEventListener("input", (event) => {
       if (validateEmail(event.currentTarget.value)) {
         emailInput.setAttribute("data-error", "false");
+        emailError.setAttribute("data-visible", "false");
         emailError.textContent = "";
-        emailError.classList.remove("show");
       }
     });
 
@@ -108,24 +108,24 @@
 
       if (!emailValue) {
         emailInput.setAttribute("data-error", "true");
+        emailError.setAttribute("data-visible", "true");
         emailError.textContent = "Whoops! It looks like you forgot to add your email";
-        emailError.classList.add("show");
         return;
       }
 
       if (!validateEmail(emailValue)) {
         emailInput.setAttribute("data-error", "true");
+        emailError.setAttribute("data-visible", "true");
         emailError.textContent = "Please provide a valid email address";
-        emailError.classList.add("show");
         return;
       }
 
       try {
-        alert("Thanks for subscribing!");
-
         emailInput.setAttribute("data-error", "false");
+        emailError.setAttribute("data-visible", "false");
         emailError.textContent = "";
-        emailError.classList.remove("show");
+
+        alert("Thanks for subscribing!");
       } catch (e) {
         alert("Oops! Something went wrong. Please try again later.");
       }

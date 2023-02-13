@@ -327,13 +327,12 @@ footer p {
 .error {
   display: none;
   min-height: 1.25rem;
-  line-height: 1.25rem;
   font-style: italic;
   text-align: center;
   margin: 0.125rem 0 0.625rem;
 }
 
-.error.show {
+.error[data-visible="true"] {
   display: block;
 }
 
