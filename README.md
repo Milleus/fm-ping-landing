@@ -57,14 +57,16 @@ Mobile view
 - Awareness of Constraint Validation APIs
 - How to use novalidate and formnovalidate
 - How to use aria-live regions
-- How to use aria-invalid and aria-describedby
+- How to use aria-invalid
+- How to use aria-describedby
 
 ### Useful resources
 
 - [Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
 - [Contraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation)
 - [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
-- [Aria invalid and Aria describedby](https://www.tpgi.com/using-aria-describedby-to-provide-helpful-form-hints/#:~:text=The%20aria%2Ddescribedby%20attribute%20takes,of%20information%20using%20aria%2Ddescribedby.)
+- [ARIA invalid](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid)
+- [ARIA describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
 
 ## Author
 
