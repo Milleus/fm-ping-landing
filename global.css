@@ -320,7 +320,7 @@ footer p {
   color: hsl(var(--clr-blue-300));
 }
 
-.input[data-variant="primary"][data-error="true"] {
+.input[data-variant="primary"][aria-invalid="true"] {
   border: 1px solid hsl(var(--clr-red-400));
 }
 

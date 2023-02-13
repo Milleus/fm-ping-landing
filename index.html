@@ -43,8 +43,8 @@
       <form id="sign-up-form" class="grid" novalidate>
         <label for="email" class="sr-only">Email</label>
         <input id="email" name="email" type="email" class="input" data-variant="primary"
-          placeholder="Your email address..." maxlength="255">
-        <p aria-live="polite" class="error fs-300 text-red-400" data-visible="false"></p>
+          placeholder="Your email address..." maxlength="255" aria-describedby="email-error">
+        <p id="email-error" aria-live="polite" class="error fs-300 text-red-400" data-visible="false"></p>
         <button type="submit" class="button" data-variant="primary">
           Notify Me
         </button>
@@ -84,7 +84,7 @@
   <script>
     const signUpForm = document.querySelector("#sign-up-form");
     const emailInput = document.querySelector("#email");
-    const emailError = document.querySelector("#email + .error");
+    const emailError = document.querySelector("#email-error");
 
     const validateEmail = (value) => {
       const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -93,7 +93,7 @@
 
     emailInput.addEventListener("input", (event) => {
       if (validateEmail(event.currentTarget.value)) {
-        emailInput.setAttribute("data-error", "false");
+        emailInput.setAttribute("aria-invalid", "false");
         emailError.setAttribute("data-visible", "false");
         emailError.textContent = "";
       }
@@ -107,21 +107,21 @@
       const emailValue = formProps.email.trim();
 
       if (!emailValue) {
-        emailInput.setAttribute("data-error", "true");
+        emailInput.setAttribute("aria-invalid", "true");
         emailError.setAttribute("data-visible", "true");
         emailError.textContent = "Whoops! It looks like you forgot to add your email";
         return;
       }
 
       if (!validateEmail(emailValue)) {
-        emailInput.setAttribute("data-error", "true");
+        emailInput.setAttribute("aria-invalid", "true");
         emailError.setAttribute("data-visible", "true");
         emailError.textContent = "Please provide a valid email address";
         return;
       }
 
       try {
-        emailInput.setAttribute("data-error", "false");
+        emailInput.setAttribute("aria-invalid", "false");
         emailError.setAttribute("data-visible", "false");
         emailError.textContent = "";
 
