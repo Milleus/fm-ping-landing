@@ -40,7 +40,7 @@
         <p class="fs-500">Subscribe and get notified</p>
       </div>
 
-      <form id="sign-up-form" class="grid" novalidate>
+      <form id="sign-up-form" class="grid">
         <label for="email" class="sr-only">Email</label>
         <input id="email" name="email" type="email" class="input" data-variant="primary"
           placeholder="Your email address..." maxlength="255" aria-describedby="email-error">
@@ -85,6 +85,8 @@
     const signUpForm = document.querySelector("#sign-up-form");
     const emailInput = document.querySelector("#email");
     const emailError = document.querySelector("#email-error");
+
+    signUpForm.noValidate = true;
 
     const validateEmail = (value) => {
       const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
